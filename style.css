@@ -230,17 +230,18 @@ nav .logo {
 .card{
     padding: 20px;
     box-shadow: 5px 4px 10px #1f29373f;
-    height: 260px;
+    height: 300px;
     width: 260px;
-    /* margin-top: 20px; */
     border-radius: 7px;
     border-top: 5px solid #09a316;
+    margin-top: 20px;
+    /* margin-left: 50px; */
 }
 .s-1{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin: 15px 0px;
 }
 .s-1 span{
     background-color: #fc9ff792;
@@ -252,7 +253,7 @@ nav .logo {
 .s-2{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 .bugs{
     display: flex;
@@ -286,6 +287,11 @@ nav .logo {
     width: 100%;
     margin: 0px auto;
     padding: 30px;
+    background-color: #eaecef6b;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 @media screen and (max-width:576px) {
     .login-interface {
