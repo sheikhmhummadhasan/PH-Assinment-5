@@ -1,12 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PH Assinment-5</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
 <body>
-    
+    <!-- login interface -->
+    <div class="login-interface hidden">
+        <!-- logos -->
+        <div class="logo-box">
+            <img src="./assets/github-logo.png" alt="logo github">
+            <h2>GitHub Issues Tracker</h2>
+            <p>Sign in to manage your issues</p>
+        </div>
+
+        <!-- label and input's -->
+        <!-- username -->
+        <div class="user-box">
+            <h4 id="user">Username</h4>
+            <input type="text" placeholder="Enter Username" id="username">
+            <p id="Default-user">Default: admin</p>
+        </div>
+
+        <!-- pass -->
+        <div class="pass-box">
+            <h4 id="pass">Password</h4>
+            <input type="password" name="" id="password">
+            <p id="Default-pass">Default: admin123</p>
+        </div>
+
+        <!-- primery-btn -->
+        <div class="btn-1-box">
+            <button class="primery-btn">Login</button>
+        </div>
+
+        <!-- hr -->
+        <div class="or-div">
+            <span></span>or
+            <span></span>
+        </div>
+
+        <!-- defaulty user or pass -->
+        <div class="defult-user-pass">
+            <h4>Username : <span>admin</span></h4>
+            <h4>Password : <span>admin123</span></h4>
+        </div>
+    </div>
+
+    <main>
+        <!-- header -->
+        <header>
+            <nav>
+                <!-- isshu logo -->
+                <div class="logo">
+                    <img src="./assets/github-logo.png" alt="logo">
+                    <h2>GitHub Issues Tracker</h2>
+                </div>
+
+                <!-- search issu -->
+                <div class="search-icchu">
+                    <input type="text" placeholder="Search issues" id="search-input">
+                    <button class="search-btn"><i class="ri-add-line"></i> Add Issues</button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- sec-1 -->
+        <section class="sec-1">
+            <button class="toggel btn-1">All</button>
+            <button class="toggel btn-2">Open</button>
+            <button class="toggel btn-3">Closed</button>
+        </section>
+
+        <!-- section of all card -->
+        <section class="sec-2">
+            <div class="marg">
+                <div class="manage-isshus">
+                    <img src="./assets/Aperture.png" alt="manage isshu">
+                    <div class="manage-info">
+                        <h3>50 Issues</h3>
+                        <p>Track and manage your project issues</p>
+                    </div>
+                </div>
+                <!-- doted card  -->
+                <div class="manage-card">
+                    <div class="open">
+                        <span></span>
+                        <p>Open</p>
+                    </div>
+                    <div class="close">
+                        <span></span>
+                        <p>Closed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- inner cards-sections -->
+        <section class="cards">
+            <!-- card -->
+            <div class="card">
+                <!-- s-1 -->
+                <div class="s-1">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <span>Heigh</span>
+                </div>
+                <!-- s-2 -->
+                <div class="s-2">
+                    <h3>Fix navigation menu on mobile devices</h3>
+                    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
+                    <div class="bug"> 
+                        <span class="bug"><i class="ri-bug-fill"></i> BUG</span>
+                        <span class="bug"><i class="ri-file-info-fill"></i> Help Wanted</span>
+                    </div>
+                </div>
+                <!-- s-3 -->
+                <div class="s-3">
+                    <p class="">#1by john_doe</p>
+                    <p class="">1/15/2024</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>

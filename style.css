@@ -1,0 +1,272 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Work Sans", sans-serif;
+    ;
+}
+
+.hidden {
+    display: none;
+}
+
+.login-interface {
+    margin: 10vh auto;
+    height: 80vh;
+    width: 45vh;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #00000030;
+}
+
+.logo-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 32px;
+}
+
+.logo-box h2 {
+    margin-top: 24px;
+}
+
+.user-box,
+.pass-box {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#user,
+#pass {
+    color: #1F2937;
+    font-weight: 500;
+}
+
+#username,
+#password {
+    border: none;
+    border-radius: 5px;
+    height: 48px;
+    padding-left: 10px;
+    background-color: red;
+}
+
+#username::placeholder,
+#password::placeholder {
+    font-size: 30px !important;
+}
+
+#Default-user,
+#Default-pass {
+    color: #4A00FF;
+}
+
+.btn-1-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primery-btn {
+    padding: 10px 150px;
+    margin: 0px auto;
+    background: #4A00FF;
+    color: #ffff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 7px;
+}
+
+.or-div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.or-div span {
+    width: 100px;
+    height: 2px;
+    background-color: #848991;
+}
+
+.defult-user-pass {
+    width: 40vh;
+    height: 10vh;
+    background-color: #F8FAFC;
+    margin: 0px auto;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: start;
+}
+
+.defult-user-pass h4 span {
+    color: #515e70;
+}
+
+.defult-user-pass h4 {
+    font-size: 0.9rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+#search-input {
+    border: 1px solid #1F2937;
+    border-radius: 5px;
+    height: 48px;
+    padding-left: 10px;
+    /* background-color: red; */
+}
+
+.search-btn {
+    padding: 10px 20px;
+    margin: 0px auto;
+    background: #4A00FF;
+    color: #ffff;
+    font-size: 1.2rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 7px;
+}
+
+.search-icchu {
+    display: flex;
+    gap: 10px;
+}
+
+.sec-1{
+    padding: 44px 0px 44px 30px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0px 0px 15px #58627058;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0px auto;
+    border-radius: 10px;
+}
+.toggel{
+    padding: 10px 20px;
+    /* margin: 0px auto; */
+    background: #4A00FF;
+    color: #ffff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 7px;
+}
+.btn-2,.btn-3{
+    padding: 10px 20px;
+    /* margin: 0px auto; */
+    background: #3a3a3b3f;
+    color: #000000;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 7px;
+}
+
+.marg{
+    /* margin-top: 20px; */
+    padding: 44px 30px 44px 30px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 15px #58627058;
+    max-width: 1280px;
+    width: 100%;
+    margin: 20px auto 0px;
+    border-radius: 10px;
+}
+
+.manage-isshus{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 10px;
+    align-items: center;
+}
+.manage-card{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.open,.close{
+    display: flex;
+    gap: 5px ;
+    align-items: center;
+}
+.open span,.close span{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #09a316;
+}
+.close span{
+    background-color: #b005ff;
+}
+@media screen and (max-width:576px) {
+    .login-interface {
+        padding: 20px;
+        width: 400px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+    }
+
+    .search-icchu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .search-btn {
+    padding: 10px 100px;
+    margin: 0px auto;
+    background: #4A00FF;
+    color: #ffff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.sec-1{
+    padding: 44px 30px 44px 30px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 15px #58627058;
+    max-width: 576px;
+    width: 90%;
+    margin: 0px auto;
+    border-radius: 10px;
+}
+
+}
