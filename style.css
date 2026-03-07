@@ -78,6 +78,7 @@
     font-size: 1.2rem;
     border: none;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .or-div {
@@ -95,7 +96,7 @@
 
 .defult-user-pass {
     width: 40vh;
-    height: 10vh;
+    height: 8vh;
     background-color: #F8FAFC;
     margin: 0px auto;
     border-radius: 7px;
@@ -153,6 +154,7 @@ nav .logo {
     align-items: center;
     gap: 5px;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .search-icchu {
@@ -178,6 +180,7 @@ nav .logo {
     font-size: 1.2rem;
     border: none;
     border-radius: 7px;
+    cursor: pointer;
 }
 .toggel{
     padding: 10px 20px;
@@ -187,6 +190,7 @@ nav .logo {
     font-size: 1.2rem;
     border: none;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .marg{
@@ -235,7 +239,7 @@ nav .logo {
     border-radius: 7px;
     border-top: 7px solid #09a316;
     margin-top: 20px;
-    /* margin-left: 50px; */
+    cursor: pointer;
 }
 .card-red{
     padding: 20px;
@@ -245,7 +249,7 @@ nav .logo {
     border-radius: 7px;
     border-top: 7px solid #d902ff;
     margin-top: 20px;
-    /* margin-left: 50px; */
+    cursor: pointer;
 }
 .s-1{
     display: flex;
@@ -336,6 +340,8 @@ nav .logo {
     transform: rotate(360deg); /* full rotation */
   }
 }
+
+/* responsive */
 @media screen and (max-width:576px) {
     .login-interface {
         padding: 20px;
@@ -369,7 +375,7 @@ nav .logo {
     gap: 5px;
 }
 .sec-1{
-    padding: 44px 30px 44px 30px;
+    padding: 20px 30px 20px 30px;
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 0px 15px #58627058;
@@ -379,4 +385,42 @@ nav .logo {
     border-radius: 10px;
 }
 
+.b{
+    padding: 10px 15px;
+    font-size: 0.9rem;
+}
+.search-btn{
+        padding: 10px 70px;
+        /* margin: 0px auto;
+        background: #4A00FF;
+        color: #ffff;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        gap: 5px; */
+}
+
+.cards{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 576px;
+    width: 100%;
+}
+.card-red,.card{
+    height: 350px;
+    width: 270px;
+    padding: 10px;
+}
+.bugs{
+    flex-direction: column;
+    gap:5px;
+    align-items: flex-start;
+}
+.s-1{
+    margin: 10px 0px;
+}
 }
