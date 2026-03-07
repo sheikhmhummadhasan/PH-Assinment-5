@@ -70,7 +70,7 @@
                 <!-- search issu -->
                 <div class="search-icchu">
                     <input type="text" placeholder="Search issues" id="search-input">
-                    <button class="search-btn"><i class="ri-add-line"></i> Add Issues</button>
+                    <button onclick="search()" class="search-btn"><i class="ri-add-line"></i> Add Issues</button>
                 </div>
             </nav>
         </header>
@@ -109,6 +109,10 @@
         <!-- inner cards-sections -->
         <section class="cards">
             <!-- card -->
+            <!-- loader -->
+            <div class="loder-box ">
+                <span class="loder hidden" id="loder"></span>
+            </div>
         </section>
     </main>
     <script src="script.js"></script>

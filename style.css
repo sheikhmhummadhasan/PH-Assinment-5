@@ -303,6 +303,35 @@ nav .logo {
     justify-content: space-between;
     align-items: center;
 }
+.user-box h4, .pass-box h4{
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+.user-box p, .pass-box p{
+    font-size: 1.2rem;
+}
+.loder-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.loder{
+    height: 60px;
+    width: 60px;
+    border: 9px solid black;
+    border-top: 9px solid #ff0000;
+    border-radius: 50%;
+     animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* start */
+  }
+  100% {
+    transform: rotate(360deg); /* full rotation */
+  }
+}
 @media screen and (max-width:576px) {
     .login-interface {
         padding: 20px;

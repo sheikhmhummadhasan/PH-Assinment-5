@@ -1,19 +1,29 @@
 let cardsDiv = document.querySelector(".cards");
+let loder = document.querySelector("#loder")
 let isshuCard_api = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
+function loading_on() {
+    loder.classList.remove("hidden")
+}
+
+function loading_off() {
+    loder.classList.add("hidden")
+}
 
 let cardshow = async () => {
     cardsDiv.innerHTML = "";
+    loading_on()
     let url = await fetch(isshuCard_api);
     let res = await url.json();
+    loading_off()
     document.querySelector(".manage-info h3 span").innerText = res.data.length;
-    
+
     // filter the closed card
-    let close = res.data.filter((c)=>{
+    let close = res.data.filter((c) => {
         return c.status === "closed"
     })
-    close.forEach((c)=>{
-         let creatAcard = document.createElement("div");
+    close.forEach((c) => {
+        let creatAcard = document.createElement("div");
         creatAcard.innerHTML = `<div class="card-red">
                 <!-- s-1 -->
                 <div class="s-1">
@@ -39,11 +49,11 @@ let cardshow = async () => {
     })
 
     // filter the open card
-    let open = res.data.filter((o)=>{
+    let open = res.data.filter((o) => {
         return o.status === "open"
     })
-    open.forEach((o)=>{
-         let creatAcard = document.createElement("div");
+    open.forEach((o) => {
+        let creatAcard = document.createElement("div");
         creatAcard.innerHTML = `<div class="card">
                 <!-- s-1 -->
                 <div class="s-1">
@@ -68,8 +78,7 @@ let cardshow = async () => {
         cardsDiv.appendChild(creatAcard)
     })
 }
-
-
+cardshow()
 
 // toggoling btn
 let tgl_btns = document.querySelectorAll(".b")
@@ -186,4 +195,11 @@ async function closefunc() {
         // console.log(g)
     })
 
+}
+
+function search() {
+    let search_input = document.querySelector("#search-input");
+    let searchValue = search_input.value;
+    
+    
 }
