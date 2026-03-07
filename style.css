@@ -47,16 +47,16 @@
 
 #username,
 #password {
-    border: none;
+    border: 1px solid #848991;
     border-radius: 5px;
     height: 48px;
     padding-left: 10px;
-    background-color: red;
+    /* background-color: red; */
 }
 
 #username::placeholder,
 #password::placeholder {
-    font-size: 30px !important;
+    font-size: 20px !important;
 }
 
 #Default-user,
@@ -170,20 +170,20 @@ nav .logo {
     margin: 0px auto;
     border-radius: 10px;
 }
+.b{
+    padding: 10px 20px;
+    /* margin: 0px auto; */
+    background: #3a3a3b3f;
+    color: #000000;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 7px;
+}
 .toggel{
     padding: 10px 20px;
     /* margin: 0px auto; */
     background: #4A00FF;
     color: #ffff;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 7px;
-}
-.btn-2,.btn-3{
-    padding: 10px 20px;
-    /* margin: 0px auto; */
-    background: #3a3a3b3f;
-    color: #000000;
     font-size: 1.2rem;
     border: none;
     border-radius: 7px;
