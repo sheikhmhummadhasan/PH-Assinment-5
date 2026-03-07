@@ -315,6 +315,10 @@ nav .logo {
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: #eaecef6b;
+    max-width: 1280px;
+    margin: 0px auto;
+    padding: 10px 0px 50px;
 }
 .loder{
     height: 60px;

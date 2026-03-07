@@ -11,11 +11,11 @@ function loading_off() {
 }
 
 let cardshow = async () => {
-    cardsDiv.innerHTML = "";
     loading_on()
+    cardsDiv.innerHTML = "";
     let url = await fetch(isshuCard_api);
     let res = await url.json();
-    loading_off()
+
     document.querySelector(".manage-info h3 span").innerText = res.data.length;
 
     // filter the closed card
@@ -77,6 +77,7 @@ let cardshow = async () => {
             </div>`
         cardsDiv.appendChild(creatAcard)
     })
+    loading_off()
 }
 cardshow()
 
@@ -200,6 +201,45 @@ async function closefunc() {
 function search() {
     let search_input = document.querySelector("#search-input");
     let searchValue = search_input.value;
-    
-    
+
+    let url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`
+
+    let fecting = async () => {
+        loading_on()
+        cardsDiv.innerHTML = "";
+        let res = await fetch(url);
+        let prom = await res.json()
+
+        let stsatus = document.querySelector(".manage-info h3 span");
+        stsatus.innerHTML = prom.data.length;
+
+        prom.data.forEach((s) => {
+            let creatAcard = document.createElement("div");
+            creatAcard.innerHTML = `<div class="card">
+                <!-- s-1 -->
+                <div class="s-1">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <span>${s.priority}</span>
+                </div>
+                <!-- s-2 -->
+                <div class="s-2">
+                    <h3>${s.title}</h3>
+                    <p>${s.description}</p>
+                    <div class="bugs"> 
+                        <span class="bug bug-1"><i class="ri-bug-fill"></i> ${s.labels[0]}</span>
+                        <span class="bug bug-2"><i class="ri-file-info-fill"></i> ${s.labels[1] ? s.labels[1] : "error"}</span>
+                    </div>
+                </div>
+                <!-- s-3 -->
+                <div class="s-3">
+                    <p class="">#${s.updatedAt}</p>
+                    <p class="">${s.createdAt}</p>
+                </div>
+            </div>`
+            cardsDiv.appendChild(creatAcard)
+        })
+        loading_off()
+    }
+    fecting()
+
 }
