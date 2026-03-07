@@ -3,6 +3,7 @@ let isshuCard_api = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
 
 let cardshow = async () => {
+    cardsDiv.innerHTML = "";
     let url = await fetch(isshuCard_api);
     let res = await url.json();
     document.querySelector(".manage-info h3 span").innerText = res.data.length;
