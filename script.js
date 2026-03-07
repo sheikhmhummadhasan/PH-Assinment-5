@@ -5,38 +5,70 @@ let isshuCard_api = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 let cardshow = async () => {
     let url = await fetch(isshuCard_api);
     let res = await url.json();
-
     document.querySelector(".manage-info h3 span").innerText = res.data.length;
-
-    res.data.forEach((e) => {
-        let creatAcard = document.createElement("div");
-        creatAcard.innerHTML = `            <div class="card">
+    
+    // filter the closed card
+    let close = res.data.filter((c)=>{
+        return c.status === "closed"
+    })
+    close.forEach((c)=>{
+         let creatAcard = document.createElement("div");
+        creatAcard.innerHTML = `<div class="card-red">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
-                    <span>${e.priority}</span>
+                    <span>${c.priority}</span>
                 </div>
                 <!-- s-2 -->
                 <div class="s-2">
-                    <h3>${e.title}</h3>
-                    <p>${e.description}</p>
+                    <h3>${c.title}</h3>
+                    <p>${c.description}</p>
                     <div class="bugs"> 
-                        <span class="bug bug-1"><i class="ri-bug-fill"></i> ${e.labels[0]}</span>
-                        <span class="bug bug-2"><i class="ri-file-info-fill"></i> ${e.labels[1] ? e.labels[1] : "error"}</span>
+                        <span class="bug bug-1"><i class="ri-bug-fill"></i> ${c.labels[0]}</span>
+                        <span class="bug bug-2"><i class="ri-file-info-fill"></i> ${c.labels[1] ? c.labels[1] : "error"}</span>
                     </div>
                 </div>
                 <!-- s-3 -->
                 <div class="s-3">
-                    <p class="">#${e.updatedAt}</p>
-                    <p class="">${e.createdAt}</p>
+                    <p class="">#${c.updatedAt}</p>
+                    <p class="">${c.createdAt}</p>
                 </div>
             </div>`
         cardsDiv.appendChild(creatAcard)
-        
-        // fuilter red
-       
+    })
+
+    // filter the open card
+    let open = res.data.filter((o)=>{
+        return o.status === "open"
+    })
+    open.forEach((o)=>{
+         let creatAcard = document.createElement("div");
+        creatAcard.innerHTML = `<div class="card">
+                <!-- s-1 -->
+                <div class="s-1">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <span>${o.priority}</span>
+                </div>
+                <!-- s-2 -->
+                <div class="s-2">
+                    <h3>${o.title}</h3>
+                    <p>${o.description}</p>
+                    <div class="bugs"> 
+                        <span class="bug bug-1"><i class="ri-bug-fill"></i> ${o.labels[0]}</span>
+                        <span class="bug bug-2"><i class="ri-file-info-fill"></i> ${o.labels[1] ? o.labels[1] : "error"}</span>
+                    </div>
+                </div>
+                <!-- s-3 -->
+                <div class="s-3">
+                    <p class="">#${o.updatedAt}</p>
+                    <p class="">${o.createdAt}</p>
+                </div>
+            </div>`
+        cardsDiv.appendChild(creatAcard)
     })
 }
+
+
 
 // toggoling btn
 let tgl_btns = document.querySelectorAll(".b")
