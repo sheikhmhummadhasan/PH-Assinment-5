@@ -32,7 +32,7 @@ let cardshow = async () => {
                 </div>
                 <!-- s-2 -->
                 <div class="s-2">
-                    <h3>${c.title}</h3>
+                    <h3 class="font-bold text-xl">${c.title}</h3>
                     <p>${c.description}</p>
                     <div class="bugs"> 
                         <span class="bug bug-1"><i class="ri-bug-fill"></i> ${c.labels[0]}</span>
@@ -120,6 +120,7 @@ loginInterface()
 
 // open function
 async function openFunc() {
+    loading_on()
     cardsDiv.innerHTML = ''
     let stsatus = document.querySelector(".manage-info h3 span")
 
@@ -154,12 +155,14 @@ async function openFunc() {
                 </div>
             </div>`
         // console.log(f)
+        loading_off()
     })
 
 }
 
 // closed function
 async function closefunc() {
+    loading_on()
     cardsDiv.innerHTML = ''
     let stsatus = document.querySelector(".manage-info h3 span")
 
@@ -194,6 +197,7 @@ async function closefunc() {
                 </div>
             </div>`
         // console.log(g)
+        loading_off()
     })
 
 }

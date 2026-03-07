@@ -234,7 +234,7 @@ nav .logo {
 .card{
     padding: 20px;
     box-shadow: 5px 4px 10px #1f29373f;
-    height: 300px;
+    height: 350px;
     width: 360px;
     border-radius: 7px;
     border-top: 7px solid #09a316;
@@ -341,6 +341,13 @@ nav .logo {
   }
 }
 
+/* modal */
+.modal{
+    height: 100px ;
+    width: 100px;
+    background-color: #09a316;
+}
+
 /* responsive */
 @media screen and (max-width:576px) {
     .login-interface {
@@ -391,15 +398,6 @@ nav .logo {
 }
 .search-btn{
         padding: 10px 70px;
-        /* margin: 0px auto;
-        background: #4A00FF;
-        color: #ffff;
-        font-size: 1.2rem;
-        border: none;
-        border-radius: 7px;
-        display: flex;
-        align-items: center;
-        gap: 5px; */
 }
 
 .cards{
@@ -411,7 +409,7 @@ nav .logo {
     width: 100%;
 }
 .card-red,.card{
-    height: 350px;
+    height: 310px;
     width: 270px;
     padding: 10px;
 }
