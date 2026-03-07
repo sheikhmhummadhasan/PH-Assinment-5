@@ -237,6 +237,16 @@ nav .logo {
     margin-top: 20px;
     /* margin-left: 50px; */
 }
+.card-red{
+    padding: 20px;
+    box-shadow: 5px 4px 10px #1f29373f;
+    height: 300px;
+    width: 360px;
+    border-radius: 7px;
+    border-top: 5px solid #ef0707;
+    margin-top: 20px;
+    /* margin-left: 50px; */
+}
 .s-1{
     display: flex;
     align-items: center;

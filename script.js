@@ -6,7 +6,7 @@ let cardshow = async () => {
     let url = await fetch(isshuCard_api);
     let res = await url.json();
 
-    document.querySelector(".manage-info h3").innerText = res.data.length;
+    document.querySelector(".manage-info h3 span").innerText = res.data.length;
 
     res.data.forEach((e) => {
         let creatAcard = document.createElement("div");
@@ -32,7 +32,9 @@ let cardshow = async () => {
                 </div>
             </div>`
         cardsDiv.appendChild(creatAcard)
-        // console.log(e)
+        
+        // fuilter red
+       
     })
 }
 
@@ -44,11 +46,11 @@ tgl_btns.forEach((t) => {
             btn.classList.remove("toggel")
             btn.classList.add("btn-2")
         })
-        console.log(t)
+        // console.log(t)
         t.classList.remove("btn-2")
         t.classList.add("toggel")
     })
-    
+
 })
 
 // login interface
@@ -72,3 +74,83 @@ function loginInterface() {
     })
 }
 loginInterface()
+
+// open function
+async function openFunc() {
+    cardsDiv.innerHTML = ''
+    let stsatus = document.querySelector(".manage-info h3 span")
+
+    let url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+    let res = await fetch(url);
+    let prom = await res.json();
+
+    let s = prom.data.filter((elem) => {
+        return elem.status === "open"
+    })
+    stsatus.innerHTML = s.length
+    s.forEach((f) => {
+        cardsDiv.innerHTML += `            <div class="card">
+                <!-- s-1 -->
+                <div class="s-1">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <span>${f.priority}</span>
+                </div>
+                <!-- s-2 -->
+                <div class="s-2">
+                    <h3>${f.title}</h3>
+                    <p>${f.description}</p>
+                    <div class="bugs"> 
+                        <span class="bug bug-1"><i class="ri-bug-fill"></i> ${f.labels[0]}</span>
+                        <span class="bug bug-2"><i class="ri-file-info-fill"></i> ${f.labels[1] ? f.labels[1] : "error"}</span>
+                    </div>
+                </div>
+                <!-- s-3 -->
+                <div class="s-3">
+                    <p class="">#${f.updatedAt}</p>
+                    <p class="">${f.createdAt}</p>
+                </div>
+            </div>`
+        // console.log(f)
+    })
+
+}
+
+// closed function
+async function closefunc() {
+    cardsDiv.innerHTML = ''
+    let stsatus = document.querySelector(".manage-info h3 span")
+
+    let url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+    let res = await fetch(url);
+    let prom = await res.json();
+
+    let s = prom.data.filter((elem) => {
+        return elem.status === "closed"
+    })
+    stsatus.innerHTML = s.length
+    s.forEach((g) => {
+        cardsDiv.innerHTML += `            <div class="card-red">
+                <!-- s-1 -->
+                <div class="s-1">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <span>${g.priority}</span>
+                </div>
+                <!-- s-2 -->
+                <div class="s-2">
+                    <h3>${g.title}</h3>
+                    <p>${g.description}</p>
+                    <div class="bugs"> 
+                        <span class="bug bug-1"><i class="ri-bug-fill"></i> ${g.labels[0]}</span>
+                        <span class="bug bug-2"><i class="ri-file-info-fill"></i> ${g.labels[1] ? g.labels[1] : "error"}</span>
+                    </div>
+                </div>
+                <!-- s-3 -->
+                <div class="s-3">
+                    <p class="">#${g.updatedAt}</p>
+                    <p class="">${g.createdAt}</p>
+                </div>
+            </div>`
+        // console.log(g)
+    })
+
+}
