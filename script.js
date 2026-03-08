@@ -24,7 +24,7 @@ let cardshow = async () => {
     })
     close.forEach((c) => {
         let creatAcard = document.createElement("div");
-        creatAcard.innerHTML = `<div class="card-red">
+        creatAcard.innerHTML = `<div class="card-red z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -54,7 +54,7 @@ let cardshow = async () => {
     })
     open.forEach((o) => {
         let creatAcard = document.createElement("div");
-        creatAcard.innerHTML = `<div class="card">
+        creatAcard.innerHTML = `<div class="card z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -133,7 +133,7 @@ async function openFunc() {
     })
     stsatus.innerHTML = s.length
     s.forEach((f) => {
-        cardsDiv.innerHTML += `            <div class="card">
+        cardsDiv.innerHTML += `            <div class="card z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -175,7 +175,7 @@ async function closefunc() {
     })
     stsatus.innerHTML = s.length
     s.forEach((g) => {
-        cardsDiv.innerHTML += `            <div class="card-red">
+        cardsDiv.innerHTML += `            <div class="card-red z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -247,3 +247,31 @@ function search() {
     fecting()
 
 }
+
+function modal_card(get_id){
+    let url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${get_id}`
+    let fetching = async () =>{
+        let res = await fetch(url);
+        let prom = await res.json()
+        console.log(prom)
+    }
+    fetching()
+}
+
+
+// modal_card()
+function modalOff() {
+    let modal_container = document.querySelector(".modal-container");
+    // modal_container.classList.remove("hidden")
+    console.log("hello")
+    modal_container.style.display = "none";
+}
+
+
+cardsDiv.addEventListener("click",(e)=>{
+    let card = e.target.closest(".card, .card-red");
+
+    if(card){
+        console.log("card clicked");
+    }
+})
