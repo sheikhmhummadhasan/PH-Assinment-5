@@ -23,8 +23,9 @@ let cardshow = async () => {
         return c.status === "closed"
     })
     close.forEach((c) => {
+        // console.log(c)
         let creatAcard = document.createElement("div");
-        creatAcard.innerHTML = `<div class="card-red z">
+        creatAcard.innerHTML = `<div onClick="for_close_model(${c.id});" class="card-red z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -54,7 +55,7 @@ let cardshow = async () => {
     })
     open.forEach((o) => {
         let creatAcard = document.createElement("div");
-        creatAcard.innerHTML = `<div class="card z">
+        creatAcard.innerHTML = `<div onClick="for_open_model(${o.id})" class="card z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -133,7 +134,7 @@ async function openFunc() {
     })
     stsatus.innerHTML = s.length
     s.forEach((f) => {
-        cardsDiv.innerHTML += `            <div class="card z">
+        cardsDiv.innerHTML += `<div onClick="for_open_model(${f.id})" class="card z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -175,7 +176,7 @@ async function closefunc() {
     })
     stsatus.innerHTML = s.length
     s.forEach((g) => {
-        cardsDiv.innerHTML += `            <div class="card-red z">
+        cardsDiv.innerHTML += `<div onClick="for_close_model(${g.id});" class="card-red z">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -202,6 +203,7 @@ async function closefunc() {
 
 }
 
+// search interface
 function search() {
     let search_input = document.querySelector("#search-input");
     let searchValue = search_input.value;
@@ -219,7 +221,7 @@ function search() {
 
         prom.data.forEach((s) => {
             let creatAcard = document.createElement("div");
-            creatAcard.innerHTML = `<div class="card">
+            creatAcard.innerHTML = `<div onClick="for_close_model(${s.id});" class="card">
                 <!-- s-1 -->
                 <div class="s-1">
                     <img src="./assets/Open-Status.png" alt="">
@@ -248,29 +250,101 @@ function search() {
 
 }
 
-function modal_card(get_id){
-    let url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${get_id}`
-    let fetching = async () =>{
-        let res = await fetch(url);
-        let prom = await res.json()
-        console.log(prom)
-    }
-    fetching()
-}
 
 
-// modal_card()
 function modalOff() {
     let modal_container = document.querySelector(".modal-container");
     modal_container.style.display = "none";
 }
 
+let for_modalGettheCards = document.querySelector(".cards");
+function modal_data_update() {
+    for_modalGettheCards.addEventListener("click", (e) => {
+        let modal_container = document.querySelector(".modal-container");
+        let card = e.target.closest(".card, .card-red");
 
-cardsDiv.addEventListener("click",(e)=>{
-    let modal_container = document.querySelector(".modal-container");
-    let card = e.target.closest(".card, .card-red");
+        if (card) {
+            modal_container.style.display = "flex"
+        }
+    })
+}
 
-    if(card){
-       modal_container.style.display = "flex"
+modal_data_update()
+
+
+
+function for_close_model(d) {
+    let url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${d}`
+    let fetching = async () => {
+        let res = await fetch(url);
+        let prom = await res.json()
+        // console.log(prom)
+        let modal = document.querySelector(".modal");
+        modal.innerHTML = ` <h1>${prom.data.title}</h1>
+                <!-- open box -->
+                <div class="opened-box">
+                    <span id="Open">${prom.data.status}</span>
+                    <p>by ${prom.data.author}</p>
+                    <p>${prom.data.updatedAt}</p>
+                </div>
+                <!-- ststus -->
+                <div class="marge bugs">
+                    <span class=" bug-1"><i class="ri-bug-fill"></i> ${prom.data.labels[0]}</span>
+                    <span class="bug-2"><i class="ri-file-info-fill"></i> ${prom.data.labels[1] ? prom.data.labels[1] : "error"}</span>                </div>
+                <!-- description -->
+                <p class="discription">${prom.data.description}</p>
+                <!-- sign by -->
+                 <div class="proi">
+                    <div class="box-m-1">
+                        <p>Assin By</p>
+                        <h3>${prom.data.assignee}</h3>
+                    </div>
+                    <div class="box-m-2">
+                        <p>Priorety</p>
+                        <span>${prom.data.priority}</span>
+                    </div>
+                 </div>
+                 <div class="close-box"><button onclick="modalOff()" class="modal-close-btn">Close</button></div>`
     }
-})
+    fetching()
+    // console.log(d)
+}
+function for_open_model(f) {
+    let url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${f}`
+    let fetching = async () => {
+        let res = await fetch(url);
+        let prom = await res.json()
+        // console.log(prom)
+        let modal = document.querySelector(".modal");
+        modal.innerHTML = ` <h1>${prom.data.title}</h1>
+                <!-- open box -->
+                <div class="opened-box">
+                    <span id="Open">${prom.data.status}</span>
+                    <p>by ${prom.data.author}</p>
+                    <p>${prom.data.updatedAt}</p>
+                </div>
+                <!-- ststus -->
+                <div class="marge bugs">
+                    <span class=" bug-1"><i class="ri-bug-fill"></i> ${prom.data.labels[0]}</span>
+                    <span class="bug-2"><i class="ri-file-info-fill"></i> ${prom.data.labels[1] ? prom.data.labels[1] : "error"}</span>                </div>
+                <!-- description -->
+                <p class="discription">${prom.data.description}</p>
+                <!-- sign by -->
+                 <div class="proi">
+                    <div class="box-m-1">
+                        <p>Assin By</p>
+                        <h3>${prom.data.assignee}</h3>
+                    </div>
+                    <div class="box-m-2">
+                        <p>Priorety</p>
+                        <span>${prom.data.priority}</span>
+                    </div>
+                 </div>
+                 <div class="close-box"><button onclick="modalOff()" class="modal-close-btn">Close</button></div>`
+    }
+    fetching()
+    // console.log(f)
+}
+
+
+
