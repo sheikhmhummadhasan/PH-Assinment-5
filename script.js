@@ -262,16 +262,15 @@ function modal_card(get_id){
 // modal_card()
 function modalOff() {
     let modal_container = document.querySelector(".modal-container");
-    // modal_container.classList.remove("hidden")
-    console.log("hello")
     modal_container.style.display = "none";
 }
 
 
 cardsDiv.addEventListener("click",(e)=>{
+    let modal_container = document.querySelector(".modal-container");
     let card = e.target.closest(".card, .card-red");
 
     if(card){
-        console.log("card clicked");
+       modal_container.style.display = "flex"
     }
 })
